@@ -17,6 +17,8 @@ const GlobalStyle = createGlobalStyle`
     display: flex;
     flex-direction: column;
     min-height: 100vh;
+    background: url('https://lh3.googleusercontent.com/proxy/IRauV7MvJFVbanzVWapuczkSIoyYKKJC_rB86hfC9P8cJxORW-vh6nwbqOLnETjfh8-YM72LQrUWKw0zbAP6_KyjSmGZy8jBNSvaoV61dBACeswYUl_JZ3nzAlYgoPjpZncc3sAB') no-repeat center center;
+    background-size: cover;
   }
 
   img {

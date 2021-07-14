@@ -72,7 +72,7 @@ AlurakutMenu.Wrapper = styled.header`
       display: none;
     }
     > div {
-      max-width: 400px;
+      max-width: 224px;
       margin: auto;
     }
     a {
