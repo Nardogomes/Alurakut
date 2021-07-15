@@ -17,7 +17,7 @@ const GlobalStyle = createGlobalStyle`
     display: flex;
     flex-direction: column;
     min-height: 100vh;
-    background: url('https://lh3.googleusercontent.com/proxy/IRauV7MvJFVbanzVWapuczkSIoyYKKJC_rB86hfC9P8cJxORW-vh6nwbqOLnETjfh8-YM72LQrUWKw0zbAP6_KyjSmGZy8jBNSvaoV61dBACeswYUl_JZ3nzAlYgoPjpZncc3sAB') no-repeat center center;
+    background: url('https://s2.glbimg.com/uTq2s3bxuPBLB0wAYKPp4ea4cz4=/e.glbimg.com/og/ed/f/original/2019/12/16/galaxy-3608029_1920.jpg') no-repeat center center;
     background-size: cover;
   }
 
