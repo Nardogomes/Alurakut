@@ -4,13 +4,14 @@ import { Box } from '../src/components/Box';
 import { ProfileSideBar } from '../src/components/ProfileSideBar';
 import { AlurakutMenu, OrkutNostalgicIconSet } from '../src/lib/AlurakutCommons';
 import { ProfileRelationsBoxWrapper } from '../src/components/ProfileRelations';
+import { ProfileRelationsBox } from '../src/components/ProfileRelationsBox';
 
 export default function Home() {
   const githubUser = 'Nardogomes';
 
   const [comunidades, setComunidades] = React.useState([{
     id: '789654789654',
-    title: 'Tocava a camppainha e corria',
+    title: 'Tocava a campainha e corria',
     image: 'https://cdn.leroymerlin.com.br/products/conjunto_de_campainha_10a_220v_branco_gracia_alumbra_89846505_0ed6_600x600.jpg'
   }]);
 
@@ -22,6 +23,21 @@ export default function Home() {
     'iurylemos',
     'imandrec'
   ]
+
+  const [seguidores, setSeguidores] = React.useState([]);
+
+  React.useEffect(function() {
+    fetch('https://api.github.com/users/Nardogomes/followers')
+    .then(function(result) {
+      return result.json();
+    })
+    .then(function(resultFinal) {
+      return setSeguidores(resultFinal);
+    })
+    .catch(function() {
+      console.error(error);
+    })
+  }, [seguidores]);
 
   return (
     <>
@@ -80,6 +96,7 @@ export default function Home() {
           </Box>
         </div>
         <div className="profileRelationsArea" style={{ gridArea: 'profileRelationsArea' }}>
+          <ProfileRelationsBox title="Seguidores" items={seguidores} />
           <ProfileRelationsBoxWrapper>
             <h2 className="smallTitle">
               Pessoas da comunidade ({pessoasFavoritas.length})
