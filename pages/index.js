@@ -9,11 +9,7 @@ import { ProfileRelationsBox } from '../src/components/ProfileRelationsBox';
 export default function Home() {
   const githubUser = 'Nardogomes';
 
-  const [comunidades, setComunidades] = React.useState([{
-    id: '789654789654',
-    title: 'Tocava a campainha e corria',
-    image: 'https://cdn.leroymerlin.com.br/products/conjunto_de_campainha_10a_220v_branco_gracia_alumbra_89846505_0ed6_600x600.jpg'
-  }]);
+  const [comunidades, setComunidades] = React.useState([]);
 
   const pessoasFavoritas = [
     'Nardogomes',
@@ -37,7 +33,33 @@ export default function Home() {
     .catch(function() {
       console.error(error);
     })
-  }, [seguidores]);
+
+    fetch('https://graphql.datocms.com/', {
+      method: 'POST',
+      headers: {
+        'Authorization': '39295b8619e1c592f9b28f6f249e37',
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+      },
+      body: JSON.stringify({
+        "query": `{
+          allCommunities {
+            id
+            title
+            imageUrl
+            creatorSlug
+          } 
+        }`
+      })
+    })
+    .then(res => res.json())
+    .then(res => {
+      const comunidadesApiDato = res.data.allCommunities;
+      setComunidades(comunidadesApiDato);
+    })
+    .catch(console.error())
+
+  }, []);
 
   return (
     <>
@@ -123,8 +145,8 @@ export default function Home() {
               {comunidades.map((item) => {
                 return (
                   <li key={item.id}>
-                    <a href={`/users/${item.title}`}>
-                      <img src={item.image} />
+                    <a href={`/communities/${item.id}`}>
+                      <img src={item.imageUrl} />
                       <span>{item.title}</span>
                     </a>
                   </li>
