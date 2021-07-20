@@ -14,12 +14,9 @@ export default function Home(props) {
   const [comunidades, setComunidades] = React.useState([]);
 
   const pessoasFavoritas = [
-    'Nardogomes',
     'cicerohen',
     'paulovictordev',
-    'gustavoguanabara',
-    'iurylemos',
-    'imandrec'
+    'iurylemos'
   ]
 
   const [seguidores, setSeguidores] = React.useState([]);
@@ -196,7 +193,7 @@ export async function getServerSideProps(context) {
   }
 
   const { githubUser } = jwt.decode(token);
-  
+
   return {
     props: {
       githubUser
