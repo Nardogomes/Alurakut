@@ -1,4 +1,4 @@
-# ALurakut
+# Alurakut
 
 Esta aplicação é uma reconstrução da clássica rede social Orkut.
 
